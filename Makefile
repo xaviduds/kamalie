@@ -2,7 +2,10 @@ r:
 	cargo run
 
 procs:
-	mprocs "bacon . --job clippy-all" "bacon . --job dev"
+	mprocs \
+	"bacon . --job clippy-all" \
+	"dx serve --hot-patch" \
+	"mdbook serve"
 
 release:
 	cargo build --release

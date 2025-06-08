@@ -1,8 +1,23 @@
 [package]
-name = "kamalion"
+name = "kamalie"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
 bevy = "0.16.0"
+bevy_simple_subsecond_system = "0.1.11"
+rand = "0.9.1"
+rand_chacha = "0.9.0"
 wasm-bindgen = "0.2.100"
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
