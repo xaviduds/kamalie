@@ -6,7 +6,7 @@ use crate::{
     application::movement::{
         advance_physics, handle_input, interpolate_rendered_transform, update_camera,
     },
-    domain::{
+    domain::entities::{
         npc::{
             setup::setup_npcs,
             spawn::{SpawnTimer, entity_npc_check_spawn},

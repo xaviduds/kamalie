@@ -1,17 +1,11 @@
-use crate::domain::user::setup::Player;
 use bevy::prelude::*;
 
-#[derive(Debug, Component, Clone, Copy, PartialEq, Default, Deref, DerefMut)]
-pub struct AccumulatedInput(Vec2);
-
-#[derive(Debug, Component, Clone, Copy, PartialEq, Default, Deref, DerefMut)]
-pub struct Velocity(Vec3);
-
-#[derive(Debug, Component, Clone, Copy, PartialEq, Default, Deref, DerefMut)]
-pub struct PhysicalTranslation(Vec3);
-
-#[derive(Debug, Component, Clone, Copy, PartialEq, Default, Deref, DerefMut)]
-pub struct PreviousPhysicalTranslation(Vec3);
+use crate::domain::{
+    components::movement::{
+        AccumulatedInput, PhysicalTranslation, PreviousPhysicalTranslation, Velocity,
+    },
+    entities::user::setup::Player,
+};
 
 pub const CAMERA_DECAY_RATE: f32 = 10.;
 

@@ -1,4 +1,4 @@
-use crate::application::movement::{
+use crate::domain::components::movement::{
     AccumulatedInput, PhysicalTranslation, PreviousPhysicalTranslation, Velocity,
 };
 use bevy::{color::palettes::css::PURPLE, prelude::*};

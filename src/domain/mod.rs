@@ -1,3 +1,2 @@
-pub mod npc;
-pub mod user;
-pub mod world;
+pub mod components;
+pub mod entities;
