@@ -1,6 +1,6 @@
 use crate::{
-    application::util::rand::{util_random_2d_size, util_random_color, util_random_position},
-    domain::entities::npc::setup::Npc,
+    application::util::rand::{util_random_1d_size, util_random_color, util_random_position},
+    domain::components::life::Ego,
 };
 use bevy::prelude::*;
 
@@ -8,20 +8,28 @@ use bevy::prelude::*;
 pub struct SpawnTimer(pub Timer);
 
 pub fn entity_npc_check_spawn(
-    commands: Commands,
-    repeating_period_time: Res<Time>,
     mut timer: ResMut<SpawnTimer>,
+    repeating_period_time: Res<Time>,
+    commands: Commands,
+    meshes: ResMut<Assets<Mesh>>,
+    materials: ResMut<Assets<ColorMaterial>>,
 ) {
     if timer.0.tick(repeating_period_time.delta()).just_finished() {
-        entity_npc_spawn(commands, 1);
+        entity_npc_spawn(commands, meshes, materials, 1);
     }
 }
 
-pub fn entity_npc_spawn(mut commands: Commands, npcs: i32) {
-    for _ in 0..npcs {
+pub fn entity_npc_spawn(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+    num_spawn: i32,
+) {
+    for _ in 0..num_spawn {
         commands.spawn((
-            Npc,
-            Sprite::from_color(util_random_color(), util_random_2d_size()),
+            Ego::Ish,
+            Mesh2d(meshes.add(Circle::new(util_random_1d_size()))),
+            MeshMaterial2d(materials.add(util_random_color())),
             util_random_position(),
         ));
     }

@@ -20,10 +20,14 @@ pub fn util_random_2d_size() -> Vec2 {
     )
 }
 
+pub fn util_random_1d_size() -> f32 {
+    rand::rng().random_range(100.0..200.)
+}
+
 pub fn util_random_position() -> Transform {
     Transform::from_xyz(
-        rand::rng().random_range(-5000.0..5000.0),
-        rand::rng().random_range(-5000.0..5000.0),
+        rand::rng().random_range(-10000.0..10000.0),
+        rand::rng().random_range(-10000.0..10000.0),
         0.0,
     )
 }

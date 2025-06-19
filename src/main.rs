@@ -20,7 +20,7 @@ use bevy::prelude::*;
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
-        .insert_resource(SpawnTimer(Timer::from_seconds(2.0, TimerMode::Repeating)))
+        .insert_resource(SpawnTimer(Timer::from_seconds(1., TimerMode::Repeating)))
         .add_systems(Startup, (setup_user, setup_world, setup_npcs))
         .add_systems(Update, entity_npc_check_spawn)
         .add_systems(FixedUpdate, advance_physics)
